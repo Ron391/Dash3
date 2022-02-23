@@ -1,0 +1,741 @@
+﻿<Window x:Class="Dash3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dash3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="900"
+        xmlns:hc="https://handyorg.github.io/handycontrol" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseDown" Background="#FFF9F9F9">
+    <Window.Resources>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Style.BasedOn>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+                    <Setter Property="hc:BorderElement.CornerRadius" Value="4"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <hc:SimplePanel>
+                                    <Border Background="#3FFFFFFF" CornerRadius="30">
+                                        <Image Source="icons8-home-48 (1).png" Width="35"/>
+                                    </Border>
+                                </hc:SimplePanel>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="Content" Value="{x:Null}"/>
+                                    <Trigger Property="hc:IconElement.Geometry" Value="{x:Null}"/>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.BasedOn>
+                        <Style TargetType="{x:Type ButtonBase}">
+                            <Setter Property="Height" Value="30"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+                            <Setter Property="Padding" Value="10,6"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                            <Style.BasedOn>
+                                <Style TargetType="{x:Type Control}">
+                                    <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+                                    <Setter Property="FontSize" Value="12"/>
+                                    <Setter Property="FocusVisualStyle">
+                                        <Setter.Value>
+                                            <Style>
+                                                <Setter Property="Control.Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate>
+                                                            <Rectangle RadiusY="4" RadiusX="4">
+                                                                <Rectangle.Style>
+                                                                    <Style TargetType="{x:Type Rectangle}">
+                                                                        <Setter Property="Margin" Value="-2"/>
+                                                                        <Setter Property="Opacity" Value="0.6"/>
+                                                                        <Setter Property="SnapsToDevicePixels" Value="True"/>
+                                                                        <Setter Property="Stroke" Value="{DynamicResource SecondaryBorderBrush}"/>
+                                                                        <Setter Property="StrokeThickness" Value="2"/>
+                                                                        <Setter Property="StrokeDashArray" Value="1 1"/>
+                                                                    </Style>
+                                                                </Rectangle.Style>
+                                                            </Rectangle>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Style.BasedOn>
+                        </Style>
+                    </Style.BasedOn>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.9"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" Value="0.6"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.4"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Style.BasedOn>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ButtonStyle2" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Style.BasedOn>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+                    <Setter Property="hc:BorderElement.CornerRadius" Value="4"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <hc:SimplePanel>
+                                    <Border Background="#3FFFFFFF" CornerRadius="30">
+                                        <Image Source="icons8-planner-48.png" Width="35"/>
+                                    </Border>
+                                </hc:SimplePanel>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="Content" Value="{x:Null}"/>
+                                    <Trigger Property="hc:IconElement.Geometry" Value="{x:Null}"/>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.BasedOn>
+                        <Style TargetType="{x:Type ButtonBase}">
+                            <Setter Property="Height" Value="30"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+                            <Setter Property="Padding" Value="10,6"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                            <Style.BasedOn>
+                                <Style TargetType="{x:Type Control}">
+                                    <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+                                    <Setter Property="FontSize" Value="12"/>
+                                    <Setter Property="FocusVisualStyle">
+                                        <Setter.Value>
+                                            <Style>
+                                                <Setter Property="Control.Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate>
+                                                            <Rectangle RadiusY="4" RadiusX="4">
+                                                                <Rectangle.Style>
+                                                                    <Style TargetType="{x:Type Rectangle}">
+                                                                        <Setter Property="Margin" Value="-2"/>
+                                                                        <Setter Property="Opacity" Value="0.6"/>
+                                                                        <Setter Property="SnapsToDevicePixels" Value="True"/>
+                                                                        <Setter Property="Stroke" Value="{DynamicResource SecondaryBorderBrush}"/>
+                                                                        <Setter Property="StrokeThickness" Value="2"/>
+                                                                        <Setter Property="StrokeDashArray" Value="1 1"/>
+                                                                    </Style>
+                                                                </Rectangle.Style>
+                                                            </Rectangle>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Style.BasedOn>
+                        </Style>
+                    </Style.BasedOn>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.9"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" Value="0.6"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.4"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Style.BasedOn>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ButtonStyle3" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Style.BasedOn>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+                    <Setter Property="hc:BorderElement.CornerRadius" Value="4"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <hc:SimplePanel>
+                                    <Border Background="#3FFFFFFF" CornerRadius="30">
+                                        <Image Source="icons8-mail-48.png" Width="35"/>
+                                    </Border>
+                                </hc:SimplePanel>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="Content" Value="{x:Null}"/>
+                                    <Trigger Property="hc:IconElement.Geometry" Value="{x:Null}"/>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.BasedOn>
+                        <Style TargetType="{x:Type ButtonBase}">
+                            <Setter Property="Height" Value="30"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+                            <Setter Property="Padding" Value="10,6"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                            <Style.BasedOn>
+                                <Style TargetType="{x:Type Control}">
+                                    <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+                                    <Setter Property="FontSize" Value="12"/>
+                                    <Setter Property="FocusVisualStyle">
+                                        <Setter.Value>
+                                            <Style>
+                                                <Setter Property="Control.Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate>
+                                                            <Rectangle RadiusY="4" RadiusX="4">
+                                                                <Rectangle.Style>
+                                                                    <Style TargetType="{x:Type Rectangle}">
+                                                                        <Setter Property="Margin" Value="-2"/>
+                                                                        <Setter Property="Opacity" Value="0.6"/>
+                                                                        <Setter Property="SnapsToDevicePixels" Value="True"/>
+                                                                        <Setter Property="Stroke" Value="{DynamicResource SecondaryBorderBrush}"/>
+                                                                        <Setter Property="StrokeThickness" Value="2"/>
+                                                                        <Setter Property="StrokeDashArray" Value="1 1"/>
+                                                                    </Style>
+                                                                </Rectangle.Style>
+                                                            </Rectangle>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Style.BasedOn>
+                        </Style>
+                    </Style.BasedOn>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.9"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" Value="0.6"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.4"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Style.BasedOn>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ButtonStyle4" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Style.BasedOn>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+                    <Setter Property="hc:BorderElement.CornerRadius" Value="4"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <hc:SimplePanel>
+                                    <Border Background="#3FFFFFFF" CornerRadius="30">
+                                        <Image Source="icons8-chat-bubble-48.png" Width="35"/>
+                                    </Border>
+                                </hc:SimplePanel>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="Content" Value="{x:Null}"/>
+                                    <Trigger Property="hc:IconElement.Geometry" Value="{x:Null}"/>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.BasedOn>
+                        <Style TargetType="{x:Type ButtonBase}">
+                            <Setter Property="Height" Value="30"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+                            <Setter Property="Padding" Value="10,6"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                            <Style.BasedOn>
+                                <Style TargetType="{x:Type Control}">
+                                    <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+                                    <Setter Property="FontSize" Value="12"/>
+                                    <Setter Property="FocusVisualStyle">
+                                        <Setter.Value>
+                                            <Style>
+                                                <Setter Property="Control.Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate>
+                                                            <Rectangle RadiusY="4" RadiusX="4">
+                                                                <Rectangle.Style>
+                                                                    <Style TargetType="{x:Type Rectangle}">
+                                                                        <Setter Property="Margin" Value="-2"/>
+                                                                        <Setter Property="Opacity" Value="0.6"/>
+                                                                        <Setter Property="SnapsToDevicePixels" Value="True"/>
+                                                                        <Setter Property="Stroke" Value="{DynamicResource SecondaryBorderBrush}"/>
+                                                                        <Setter Property="StrokeThickness" Value="2"/>
+                                                                        <Setter Property="StrokeDashArray" Value="1 1"/>
+                                                                    </Style>
+                                                                </Rectangle.Style>
+                                                            </Rectangle>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Style.BasedOn>
+                        </Style>
+                    </Style.BasedOn>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.9"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" Value="0.6"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.4"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Style.BasedOn>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ButtonStyle5" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Style.BasedOn>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+                    <Setter Property="hc:BorderElement.CornerRadius" Value="4"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <hc:SimplePanel>
+                                    <Border Background="#3FFFFFFF" CornerRadius="30">
+                                        <Image Source="icons8-account-48 (1).png" Width="35"/>
+                                    </Border>
+                                </hc:SimplePanel>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="Content" Value="{x:Null}"/>
+                                    <Trigger Property="hc:IconElement.Geometry" Value="{x:Null}"/>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.BasedOn>
+                        <Style TargetType="{x:Type ButtonBase}">
+                            <Setter Property="Height" Value="30"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+                            <Setter Property="Padding" Value="10,6"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                            <Style.BasedOn>
+                                <Style TargetType="{x:Type Control}">
+                                    <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+                                    <Setter Property="FontSize" Value="12"/>
+                                    <Setter Property="FocusVisualStyle">
+                                        <Setter.Value>
+                                            <Style>
+                                                <Setter Property="Control.Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate>
+                                                            <Rectangle RadiusY="4" RadiusX="4">
+                                                                <Rectangle.Style>
+                                                                    <Style TargetType="{x:Type Rectangle}">
+                                                                        <Setter Property="Margin" Value="-2"/>
+                                                                        <Setter Property="Opacity" Value="0.6"/>
+                                                                        <Setter Property="SnapsToDevicePixels" Value="True"/>
+                                                                        <Setter Property="Stroke" Value="{DynamicResource SecondaryBorderBrush}"/>
+                                                                        <Setter Property="StrokeThickness" Value="2"/>
+                                                                        <Setter Property="StrokeDashArray" Value="1 1"/>
+                                                                    </Style>
+                                                                </Rectangle.Style>
+                                                            </Rectangle>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Style.BasedOn>
+                        </Style>
+                    </Style.BasedOn>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.9"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" Value="0.6"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.4"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Style.BasedOn>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="CalendarWithClockStyle1" TargetType="{x:Type hc:CalendarWithClock}">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+            <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+            <Setter Property="hc:TitleElement.Background" Value="{DynamicResource TitleBrush}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Margin" Value="8,0"/>
+            <Setter Property="hc:BorderElement.CornerRadius" Value="4"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type hc:CalendarWithClock}">
+                        <hc:SimplePanel HorizontalAlignment="Center" Margin="0,4,0,8" VerticalAlignment="Center">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="8" Color="#88000000" Direction="270" Opacity="0.2" RenderingBias="Performance" ShadowDepth="1.5"/>
+                                </Border.Effect>
+                            </Border>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Border Background="{Binding (hc:TitleElement.Background), RelativeSource={RelativeSource TemplatedParent}}" Grid.ColumnSpan="1" CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" Height="42" Margin="4,4,13,0" VerticalAlignment="Top"/>
+                                <ContentPresenter x:Name="PART_CalendarPresenter" Grid.Column="0" Margin="-8,-4,-8,-8" Grid.Row="0" Grid.RowSpan="2"/>
+                                <ContentPresenter x:Name="PART_ClockPresenter" Grid.Column="1" Margin="-8,-4,-8,-8" Grid.Row="0" Grid.RowSpan="2" d:IsHidden="True"/>
+                                <Button x:Name="PART_ButtonConfirm" Grid.ColumnSpan="2" Content="{Binding Confirm, Mode=OneWay, UpdateSourceTrigger=Explicit}" Grid.Column="0" HorizontalAlignment="Center" Margin="0,0,0,19" Grid.Row="2" VerticalAlignment="Bottom" Width="180">
+                                    <Button.Style>
+                                        <Style TargetType="{x:Type Button}">
+                                            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+                                            <Style.BasedOn>
+                                                <Style TargetType="{x:Type Button}">
+                                                    <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+                                                    <Setter Property="hc:BorderElement.CornerRadius" Value="4"/>
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                                <hc:SimplePanel>
+                                                                    <Border Background="{TemplateBinding Background}" CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"/>
+                                                                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding (hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                                                                        <StackPanel HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                                                            <Path x:Name="PathMain" Data="{TemplateBinding hc:IconElement.Geometry}" Fill="{TemplateBinding Foreground}" Height="{TemplateBinding hc:IconElement.Height}" Stretch="Uniform" SnapsToDevicePixels="True" Width="{TemplateBinding hc:IconElement.Width}"/>
+                                                                            <ContentPresenter x:Name="ContentPresenterMain" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Margin="6,0,0,0" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
+                                                                        </StackPanel>
+                                                                    </Border>
+                                                                </hc:SimplePanel>
+                                                                <ControlTemplate.Triggers>
+                                                                    <Trigger Property="Content" Value="{x:Null}">
+                                                                        <Setter Property="Visibility" TargetName="ContentPresenterMain" Value="Collapsed"/>
+                                                                    </Trigger>
+                                                                    <Trigger Property="hc:IconElement.Geometry" Value="{x:Null}">
+                                                                        <Setter Property="Visibility" TargetName="PathMain" Value="Collapsed"/>
+                                                                        <Setter Property="Margin" TargetName="ContentPresenterMain" Value="0"/>
+                                                                    </Trigger>
+                                                                </ControlTemplate.Triggers>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Style.BasedOn>
+                                                        <Style TargetType="{x:Type ButtonBase}">
+                                                            <Setter Property="Height" Value="30"/>
+                                                            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+                                                            <Setter Property="Padding" Value="10,6"/>
+                                                            <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
+                                                            <Setter Property="BorderThickness" Value="0"/>
+                                                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                                            <Style.BasedOn>
+                                                                <Style TargetType="{x:Type Control}">
+                                                                    <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+                                                                    <Setter Property="FontSize" Value="12"/>
+                                                                    <Setter Property="FocusVisualStyle">
+                                                                        <Setter.Value>
+                                                                            <Style>
+                                                                                <Setter Property="Control.Template">
+                                                                                    <Setter.Value>
+                                                                                        <ControlTemplate>
+                                                                                            <Rectangle RadiusY="4" RadiusX="4">
+                                                                                                <Rectangle.Style>
+                                                                                                    <Style TargetType="{x:Type Rectangle}">
+                                                                                                        <Setter Property="Margin" Value="-2"/>
+                                                                                                        <Setter Property="Opacity" Value="0.6"/>
+                                                                                                        <Setter Property="SnapsToDevicePixels" Value="True"/>
+                                                                                                        <Setter Property="Stroke" Value="{DynamicResource SecondaryBorderBrush}"/>
+                                                                                                        <Setter Property="StrokeThickness" Value="2"/>
+                                                                                                        <Setter Property="StrokeDashArray" Value="1 1"/>
+                                                                                                    </Style>
+                                                                                                </Rectangle.Style>
+                                                                                            </Rectangle>
+                                                                                        </ControlTemplate>
+                                                                                    </Setter.Value>
+                                                                                </Setter>
+                                                                            </Style>
+                                                                        </Setter.Value>
+                                                                    </Setter>
+                                                                </Style>
+                                                            </Style.BasedOn>
+                                                        </Style>
+                                                    </Style.BasedOn>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Opacity" Value="0.9"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsPressed" Value="True">
+                                                            <Setter Property="Opacity" Value="0.6"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsEnabled" Value="False">
+                                                            <Setter Property="Opacity" Value="0.4"/>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Style.BasedOn>
+                                        </Style>
+                                    </Button.Style>
+                                    <Button.Visibility>
+                                        <TemplateBinding Property="ShowConfirmButton">
+                                            <TemplateBinding.Converter>
+                                                <BooleanToVisibilityConverter/>
+                                            </TemplateBinding.Converter>
+                                        </TemplateBinding>
+                                    </Button.Visibility>
+                                </Button>
+                            </Grid>
+                        </hc:SimplePanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Rectangle Fill="#FF6E41E6" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="80"/>
+        <Image HorizontalAlignment="Left" Height="60" Margin="8.5,13,0,0" VerticalAlignment="Top" Width="60" Source="gamer.png"/>
+
+        <Button Content="Button" HorizontalAlignment="Left" Height="50" Margin="14.5,115,0,0" VerticalAlignment="Top" Width="50" Style="{DynamicResource ButtonStyle1}"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="50" Margin="14.5,195,0,0" VerticalAlignment="Top" Width="50" Style="{DynamicResource ButtonStyle2}"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="50" Margin="14.5,275,0,0" VerticalAlignment="Top" Width="50" Style="{DynamicResource ButtonStyle3}"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="50" Margin="14.5,360,0,0" VerticalAlignment="Top" Width="50" Style="{DynamicResource ButtonStyle4}"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="50" Margin="14.5,445,0,0" VerticalAlignment="Top" Width="50" Style="{DynamicResource ButtonStyle5}"/>
+        <TextBlock HorizontalAlignment="Left" Height="20" Margin="115,25,0,0" TextWrapping="Wrap" Text="WELCOME" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Height="28" Margin="115,41,0,0" TextWrapping="Wrap" Text="Jane Doe" VerticalAlignment="Top" Width="175" FontWeight="Bold" FontSize="20"/>
+        <hc:Card HorizontalAlignment="Left" Height="175" Margin="115,85,0,0" VerticalAlignment="Top" Width="505"/>
+        <TextBlock HorizontalAlignment="Left" Height="34.95" Margin="126,95.05,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"><Run Text="STATISTICS"/><LineBreak/><Run Foreground="#FF595757" Text="Processes"/></TextBlock>
+        <Grid Margin="135,139,690,297.5">
+            <hc:CircleProgressBar HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="75" Value="25" Background="#FFEBF088" Foreground="#FFFFC500" FontSize="18" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Left" Height="16" Margin="0,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" TextAlignment="Center" FontWeight="Bold" Foreground="#FF575757" Text="Back End"/>
+            <Rectangle Fill="#FFEBF088" HorizontalAlignment="Left" Height="15" Margin="0,97,0,0" RadiusY="10" RadiusX="10" VerticalAlignment="Top" Width="75"/>
+            <TextBlock HorizontalAlignment="Left" Height="16" Margin="0,97.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" TextAlignment="Center" Foreground="#FFFFC500" Text="Overdue" FontSize="9" FontWeight="Bold"/>
+
+        </Grid>
+        <Grid Margin="224.5,139,600.5,297.5">
+            <hc:CircleProgressBar HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="75" Value="50" Background="#FFBCA0F9" Foreground="#FF7400FF" FontSize="18" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Left" Height="16" Margin="0,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" TextAlignment="Center" FontWeight="Bold" Foreground="#FF575757" Text="Front End"/>
+            <Rectangle Fill="#FFBCA0F9" HorizontalAlignment="Left" Height="15" Margin="0,97,0,0" RadiusY="10" RadiusX="10" VerticalAlignment="Top" Width="75"/>
+            <TextBlock HorizontalAlignment="Left" Height="16" Margin="0,97.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" TextAlignment="Center" Foreground="#FF7400FF" Text="Delayed" FontSize="9" FontWeight="Bold"/>
+
+        </Grid>
+        <Grid Margin="314,139,511,297.5">
+            <hc:CircleProgressBar HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="75" Value="62" Background="#FF88F0A9" Foreground="#FF03E84C" FontSize="18" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Left" Height="16" Margin="0,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" TextAlignment="Center" FontWeight="Bold" Foreground="#FF575757" Text="Design"/>
+            <Rectangle Fill="#FF88F0A9" HorizontalAlignment="Left" Height="15" Margin="0,97,0,0" RadiusY="10" RadiusX="10" VerticalAlignment="Top" Width="75"/>
+            <TextBlock HorizontalAlignment="Left" Height="16" Margin="0,97.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" TextAlignment="Center" Foreground="#FF03E84C" Text="On track" FontSize="9" FontWeight="Bold"/>
+
+        </Grid>
+        <Grid Margin="404.5,139,420.5,297.5">
+            <hc:CircleProgressBar HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="75" Value="75" Background="#FF80EE8A" Foreground="#FF51B219" FontSize="18" FontWeight="Bold"/>
+            <TextBlock HorizontalAlignment="Left" Height="16" Margin="0,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" TextAlignment="Center" FontWeight="Bold" Foreground="#FF575757" Text="Copyright"/>
+            <Rectangle Fill="#FF80EE8A" HorizontalAlignment="Left" Height="15" Margin="0,97,0,0" RadiusY="10" RadiusX="10" VerticalAlignment="Top" Width="75"/>
+            <TextBlock HorizontalAlignment="Left" Height="16" Margin="0,97.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" TextAlignment="Center" Foreground="#FF51B219" Text="On track" FontSize="9" FontWeight="Bold"/>
+
+        </Grid>
+        <Path Data="M500,85 L500,252.5" Fill="#FFB2B2B2" HorizontalAlignment="Left" Height="167.5" Margin="497.5,87.5,0,0" Stretch="Fill" VerticalAlignment="Top" Width="5" Stroke="#FFB2B2B2"/>
+        <TextBlock HorizontalAlignment="Left" Height="19.95" Margin="507.5,95.05,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102.5" Text="Deadlines"/>
+        <ProgressBar HorizontalAlignment="Left" Height="11" Margin="507.5,125,0,0" VerticalAlignment="Top" Width="65.5" Foreground="#FFFFC500" FontSize="6" Value="50"/>
+        <hc:DatePicker Margin="581.5,115,288.929,405"/>
+        <ProgressBar HorizontalAlignment="Left" Height="11" Margin="507.5,160,0,0" VerticalAlignment="Top" Width="65.5" Foreground="#FF9848FE" FontSize="6" Value="50"/>
+        <hc:DatePicker Margin="581.5,150,288.929,370"/>
+        <ProgressBar HorizontalAlignment="Left" Height="11" Margin="507.5,195,0,0" VerticalAlignment="Top" Width="65.5" Foreground="#FF03E84C" FontSize="6" Value="50"/>
+        <hc:DatePicker Margin="581.5,185,288.929,335"/>
+        <ProgressBar HorizontalAlignment="Left" Height="11" Margin="507.5,230,0,0" VerticalAlignment="Top" Width="65.5" Foreground="#FF51B219" FontSize="6" Value="50"/>
+        <hc:DatePicker Margin="581.5,220,288.929,300"/>
+        <hc:Card Content="" HorizontalAlignment="Left" Height="80" Margin="635,85,0,0" VerticalAlignment="Top" Width="255" Background="#FF7400FF"/>
+        <TextBlock HorizontalAlignment="Left" Height="34.95" Margin="650,92.05,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="White"><Run Text="MONTHLY GOAL"/><LineBreak/><Run Text="January"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="40" Margin="650,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Foreground="White"><Run FontSize="16" Text="$"/><Run FontSize="36" Text="1.000.000"/></TextBlock>
+        <hc:ComboBox ShowClearButton="False" SelectedIndex="0" Margin="803,91,17,429" FontSize="10" Foreground="#FF7400FF">
+            <ListBoxItem Content="Daily"/>
+            <ListBoxItem Content="Weekly"/>
+            <ListBoxItem Content="Monthly"/>
+            <ListBoxItem Content="Yearly"/>
+        </hc:ComboBox>
+        <hc:Card Content="" HorizontalAlignment="Left" Height="90" Margin="635,170,0,0" VerticalAlignment="Top" Width="255" Background="White"/>
+        <TextBlock HorizontalAlignment="Left" Height="34.95" Margin="650,178.05,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF3C3C3C"><Run Text="PROJECTION"/><LineBreak/><Run Text="January 4th"/></TextBlock>
+        <hc:WaveProgressBar HorizontalAlignment="Left" Height="77.95" Margin="808,179.05,0,0" VerticalAlignment="Top" Width="70" ShowText="False" Value="50"/>
+        <TextBlock HorizontalAlignment="Left" Height="40" Margin="650,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Foreground="#FF7400FF"><Run FontSize="16" Text="$"/><Run FontSize="24" Text="265.000"/></TextBlock>
+        <hc:Card Content="" HorizontalAlignment="Left" Height="265" Margin="115,275,0,0" VerticalAlignment="Top" Width="274"/>
+        <hc:Card Content="" HorizontalAlignment="Left" Height="265" Margin="404.5,275,0,0" VerticalAlignment="Top" Width="485.5"/>
+        <Path Data="M500,85 L500,252.5" Fill="#FFB2B2B2" HorizontalAlignment="Left" Height="246.5" Margin="626,283.5,0,0" Stretch="Fill" VerticalAlignment="Top" Width="7.358" Stroke="#FFB2B2B2"/>
+        <TextBlock HorizontalAlignment="Left" Height="16.5" Margin="126,283.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="CHAT"/>
+        <hc:ScrollViewer IsInertiaEnabled="True" Margin="126,315,520,20">
+            <WrapPanel Orientation="Horizontal">
+                <Grid Width="254" Height="61.5">
+                    <Rectangle Fill="#FFB5A0EA" Height="45" RadiusY="22" RadiusX="22" Width="45" Margin="10,7,199,9.5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="24,14,0,0" TextWrapping="Wrap" Text="P" VerticalAlignment="Top" Width="20" FontSize="22" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock HorizontalAlignment="Left" Height="38" Margin="69,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF2B2B2B"><Run FontWeight="Bold" FontSize="16" Text="Peter Dawson"/><LineBreak/><Run Text="Developer"/></TextBlock>
+                    <Rectangle Fill="#FF88F0A9" HorizontalAlignment="Left" Height="15" Margin="194,29,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
+                    <TextBlock HorizontalAlignment="Left" Height="16" Margin="194,29.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextAlignment="Center" Foreground="#FF03E84C" Text="Active" FontSize="9" FontWeight="Bold"/>
+                </Grid>
+                <Grid Width="254" Height="61.5">
+                    <Rectangle Fill="#FFB5A0EA" Height="45" RadiusY="22" RadiusX="22" Width="45" Margin="10,7,199,9.5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="24,14,0,0" TextWrapping="Wrap" Text="G" VerticalAlignment="Top" Width="20" FontSize="22" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock HorizontalAlignment="Left" Height="38" Margin="69,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF2B2B2B"><Run FontWeight="Bold" FontSize="16" Text="Gina Stewart"/><LineBreak/><Run Text="Designer"/></TextBlock>
+                    <Rectangle Fill="#FF88F0A9" HorizontalAlignment="Left" Height="15" Margin="194,29,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
+                    <TextBlock HorizontalAlignment="Left" Height="16" Margin="194,29.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextAlignment="Center" Foreground="#FF03E84C" Text="Active" FontSize="9" FontWeight="Bold"/>
+                </Grid>
+                <Grid Width="254" Height="61.5">
+                    <Rectangle Fill="#FFB5A0EA" Height="45" RadiusY="22" RadiusX="22" Width="45" Margin="10,7,199,9.5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="24,14,0,0" TextWrapping="Wrap" Text="J" VerticalAlignment="Top" Width="20" FontSize="22" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock HorizontalAlignment="Left" Height="38" Margin="69,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF2B2B2B"><Run FontWeight="Bold" FontSize="16" Text="Janet Smith"/><LineBreak/><Run Text="Front End Developer"/></TextBlock>
+                    <Rectangle Fill="#FF88F0A9" HorizontalAlignment="Left" Height="15" Margin="194,29,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
+                    <TextBlock HorizontalAlignment="Left" Height="16" Margin="194,29.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextAlignment="Center" Foreground="#FF03E84C" Text="Active" FontSize="9" FontWeight="Bold"/>
+                </Grid>
+                <Grid Width="254" Height="61.5">
+                    <Rectangle Fill="#FFB5A0EA" Height="45" RadiusY="22" RadiusX="22" Width="45" Margin="10,7,199,9.5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="24,14,0,0" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="20" FontSize="22" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock HorizontalAlignment="Left" Height="38" Margin="69,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF2B2B2B"><Run FontWeight="Bold" FontSize="16" Text="Mia Wilde"/><LineBreak/><Run Text="Copyrighter"/></TextBlock>
+                    <Rectangle Fill="#FFEBF088" HorizontalAlignment="Left" Height="15" Margin="194,29,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
+                    <TextBlock HorizontalAlignment="Left" Height="16" Margin="194,29.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextAlignment="Center" Foreground="#FFFDC519" Text="Away" FontSize="9" FontWeight="Bold"/>
+                </Grid>
+                <Grid Width="254" Height="61.5">
+                    <Rectangle Fill="#FFB5A0EA" Height="45" RadiusY="22" RadiusX="22" Width="45" Margin="10,7,199,9.5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="24,14,0,0" TextWrapping="Wrap" Text="P" VerticalAlignment="Top" Width="20" FontSize="22" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock HorizontalAlignment="Left" Height="38" Margin="69,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF2B2B2B"><Run FontWeight="Bold" FontSize="16" Text="Peter Dawson"/><LineBreak/><Run Text="Developer"/></TextBlock>
+                    <Rectangle Fill="#FF88F0A9" HorizontalAlignment="Left" Height="15" Margin="194,29,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
+                    <TextBlock HorizontalAlignment="Left" Height="16" Margin="194,29.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextAlignment="Center" Foreground="#FF03E84C" Text="Active" FontSize="9" FontWeight="Bold"/>
+                </Grid>
+                <Grid Width="254" Height="61.5">
+                    <Rectangle Fill="#FFB5A0EA" Height="45" RadiusY="22" RadiusX="22" Width="45" Margin="10,7,199,9.5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="24,14,0,0" TextWrapping="Wrap" Text="G" VerticalAlignment="Top" Width="20" FontSize="22" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock HorizontalAlignment="Left" Height="38" Margin="69,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF2B2B2B"><Run FontWeight="Bold" FontSize="16" Text="Gina Stewart"/><LineBreak/><Run Text="Designer"/></TextBlock>
+                    <Rectangle Fill="#FF88F0A9" HorizontalAlignment="Left" Height="15" Margin="194,29,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
+                    <TextBlock HorizontalAlignment="Left" Height="16" Margin="194,29.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextAlignment="Center" Foreground="#FF03E84C" Text="Active" FontSize="9" FontWeight="Bold"/>
+                </Grid>
+                <Grid Width="254" Height="61.5">
+                    <Rectangle Fill="#FFB5A0EA" Height="45" RadiusY="22" RadiusX="22" Width="45" Margin="10,7,199,9.5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="24,14,0,0" TextWrapping="Wrap" Text="J" VerticalAlignment="Top" Width="20" FontSize="22" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock HorizontalAlignment="Left" Height="38" Margin="69,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF2B2B2B"><Run FontWeight="Bold" FontSize="16" Text="Janet Smith"/><LineBreak/><Run Text="Front End Developer"/></TextBlock>
+                    <Rectangle Fill="#FF88F0A9" HorizontalAlignment="Left" Height="15" Margin="194,29,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
+                    <TextBlock HorizontalAlignment="Left" Height="16" Margin="194,29.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextAlignment="Center" Foreground="#FF03E84C" Text="Active" FontSize="9" FontWeight="Bold"/>
+                </Grid>
+                <Grid Width="254" Height="61.5">
+                    <Rectangle Fill="#FFB5A0EA" Height="45" RadiusY="22" RadiusX="22" Width="45" Margin="10,7,199,9.5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="24,14,0,0" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="20" FontSize="22" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock HorizontalAlignment="Left" Height="38" Margin="69,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="#FF2B2B2B"><Run FontWeight="Bold" FontSize="16" Text="Mia Wilde"/><LineBreak/><Run Text="Copyrighter"/></TextBlock>
+                    <Rectangle Fill="#FFEBF088" HorizontalAlignment="Left" Height="15" Margin="194,29,0,0" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="50"/>
+                    <TextBlock HorizontalAlignment="Left" Height="16" Margin="194,29.5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" TextAlignment="Center" Foreground="#FFFDC519" Text="Away" FontSize="9" FontWeight="Bold"/>
+                </Grid>
+            </WrapPanel>
+        </hc:ScrollViewer>
+        <TextBlock HorizontalAlignment="Left" Height="16.5" Margin="413,287.05,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="UPCOMING EVENTS"/>
+        <hc:ScrollViewer IsInertiaEnabled="True" Margin="413,315,278,20">
+            <WrapPanel Orientation="Horizontal">
+                <Grid Width="210" Height="61.5">
+                    <Rectangle Fill="#FFB5A0EA" Height="45" RadiusY="22" RadiusX="22" Width="45" Margin="1,9,164,7.5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="12,16,0,0" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="20" FontSize="22" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock HorizontalAlignment="Left" Height="38" Margin="55,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" Foreground="#FF2B2B2B"><Run FontWeight="Bold" FontSize="16" Text="Meeting 1"/><LineBreak/><Run Text="15/22  15:00hrs"/></TextBlock>
+                    <Button Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="55" Margin="148,18,0,0" BorderBrush="#FF7400FF" Foreground="#FF7400FF" Height="25" Padding="10,0"/>
+                </Grid>
+                <Grid Width="210" Height="61.5">
+                    <Rectangle Fill="#FFB5A0EA" Height="45" RadiusY="22" RadiusX="22" Width="45" Margin="1,9,164,7.5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="12,16,0,0" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="20" FontSize="22" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock HorizontalAlignment="Left" Height="38" Margin="55,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" Foreground="#FF2B2B2B"><Run FontWeight="Bold" FontSize="16" Text="Meeting 2"/><LineBreak/><Run Text="15/22  15:00hrs"/></TextBlock>
+                    <Button Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="55" Margin="148,18,0,0" BorderBrush="#FF7400FF" Foreground="#FF7400FF" Height="25" Padding="10,0"/>
+                </Grid>
+                <Grid Width="210" Height="61.5">
+                    <Rectangle Fill="#FFB5A0EA" Height="45" RadiusY="22" RadiusX="22" Width="45" Margin="1,9,164,7.5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="12,16,0,0" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="20" FontSize="22" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock HorizontalAlignment="Left" Height="38" Margin="55,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" Foreground="#FF2B2B2B"><Run FontWeight="Bold" FontSize="16" Text="Meeting 3"/><LineBreak/><Run Text="15/22  15:00hrs"/></TextBlock>
+                    <Button Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="55" Margin="148,18,0,0" BorderBrush="#FF7400FF" Foreground="#FF7400FF" Height="25" Padding="10,0"/>
+                </Grid>
+                <Grid Width="210" Height="61.5">
+                    <Rectangle Fill="#FFB5A0EA" Height="45" RadiusY="22" RadiusX="22" Width="45" Margin="1,9,164,7.5"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="12,16,0,0" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="20" FontSize="22" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock HorizontalAlignment="Left" Height="38" Margin="55,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" Foreground="#FF2B2B2B"><Run FontWeight="Bold" FontSize="16" Text="Meeting 4"/><LineBreak/><Run Text="15/22  15:00hrs"/></TextBlock>
+                    <Button Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="55" Margin="148,18,0,0" BorderBrush="#FF7400FF" Foreground="#FF7400FF" Height="25" Padding="10,0"/>
+                </Grid>
+            </WrapPanel>
+        </hc:ScrollViewer>
+        <hc:CalendarWithClock Margin="633.358,275,17,10" Style="{DynamicResource CalendarWithClockStyle1}" />
+    </Grid>
+</Window>
